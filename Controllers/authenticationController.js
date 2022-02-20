@@ -30,7 +30,7 @@ async function checkMailAndPassword(dataBase, request, response, next) {
                         if (request.body.isSpeaker == true) { return "speaker" }
                         else { return "student" }
                     })(),
-                    id: request.body._id
+                    id: data._id
                 }, process.env.SECRET_KEY, { expiresIn: "2h" })
                 response.status(201).json({ message: "logged in", data, token })
             } else {
